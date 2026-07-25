@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#105b51" />
+    <title>Leo AI Coach · Dino Math Quest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-label="Today's learning quest">
+        <div class="topbar">
+          <a class="brand" href="#top" aria-label="Leo AI Coach home"><span class="brand-mark">✦</span> Leo AI Coach</a>
+          <button class="parent-toggle" id="parentToggle" aria-expanded="false">For Grown-ups <span>→</span></button>
+        </div>
+        <div class="hero-content" id="top">
+          <div class="hero-copy">
+            <p class="eyebrow">TODAY'S DINO QUEST</p>
+            <h1>Help Nori hatch<br />the <em>golden egg!</em></h1>
+            <p class="subhead">A tiny math adventure. Take your time — brave thinkers try things.</p>
+            <div class="quest-meta"><span>🕐 about 8 minutes</span><span>🌟 3 challenges</span></div>
+          </div>
+          <div class="dino-scene" aria-hidden="true">
+            <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+            <div class="mountain one"></div><div class="mountain two"></div>
+            <div class="dino"><div class="dino-eye"></div><div class="dino-mouth"></div><div class="dino-spikes">▲ ▲ ▲</div><div class="dino-belly"></div></div>
+            <div class="egg egg-hero">✦</div>
+          </div>
+        </div>
+        <div class="progress-wrap" aria-label="Quest progress"><div class="progress-label"><span id="progressWords">Let's begin!</span><span id="progressCount">0 / 3</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+      </section>
+
+      <section class="lesson-section" aria-live="polite">
+        <div class="guide-card">
+          <div class="guide-avatar">🦕</div>
+          <div><p class="guide-name">Nori says</p><p id="guideText">Hi Leo! We need 15 eggs. We already found 8, then 7 more. How many eggs do we have?</p></div>
+          <button class="sound-button" id="soundButton" aria-label="Hear Nori's question">🔊</button>
+        </div>
+
+        <article class="challenge-card" id="challengeCard">
+          <div class="card-top"><span class="challenge-chip" id="challengeChip">CHALLENGE 1</span><button class="hint-button" id="hintButton">Need a clue? 💡</button></div>
+          <div class="math-area" id="mathArea">
+            <div class="egg-group" id="leftEggs" aria-label="8 eggs"></div><span class="operator">+</span><div class="egg-group" id="rightEggs" aria-label="7 eggs"></div><span class="operator equals">=</span><span class="question-mark">?</span>
+          </div>
+          <p class="think-prompt" id="thinkPrompt">Pick an answer, then tell Nori how you thought about it.</p>
+          <div class="answers" id="answers" role="group" aria-label="Choose an answer"></div>
+          <div class="strategy-row" id="strategyRow"><span>How did you solve it?</span><button data-strategy="I counted them.">I counted</button><button data-strategy="I made 10 first.">I made 10</button><button data-strategy="I just knew it!">I just knew</button></div>
+          <div class="feedback" id="feedback" hidden></div>
+          <button class="next-button" id="nextButton" hidden>Next adventure <span>→</span></button>
+        </article>
+      </section>
+
+      <section class="celebration" id="celebration" hidden>
+        <div class="confetti">✦ ★ ✦</div><div class="big-badge">🏅</div>
+        <p class="eyebrow">QUEST COMPLETE</p><h2>You helped Nori!</h2><p>You kept trying, and that is what strong math brains do.</p>
+        <div class="star-line" id="starLine">⭐ ⭐ ⭐</div>
+        <button class="play-again" id="playAgain">Play this quest again</button>
+      </section>
+
+      <section class="parent-panel" id="parentPanel" hidden>
+        <div class="parent-heading"><div><p class="eyebrow">PARENT SNAPSHOT</p><h2>Leo’s learning, not just his answers.</h2></div><button id="closeParent" aria-label="Close parent dashboard">×</button></div>
+        <div class="dashboard-grid">
+          <article class="metric-card"><span class="metric-icon green">😊</span><p>Today’s mood</p><strong id="moodValue">Ready to explore</strong><small>Celebrate effort, even before an answer.</small></article>
+          <article class="metric-card"><span class="metric-icon orange">🧠</span><p>Current skill</p><strong id="skillValue">Making 10</strong><small>Using number bonds for addition.</small></article>
+          <article class="metric-card"><span class="metric-icon purple">🌟</span><p>Brave tries</p><strong id="triesValue">0</strong><small>Attempts are useful learning clues.</small></article>
+        </div>
+        <article class="insight-card"><div class="insight-icon">💬</div><div><p class="guide-name">A gentle coaching note</p><p id="parentNote">Try asking, “How did you think about that?” instead of correcting right away. Nori will show the next helpful step.</p></div></article>
+        <div class="skill-progress"><div><span>Number bonds to 10</span><strong id="masteryValue">0%</strong></div><div class="mastery-track"><i id="masteryBar"></i></div><p id="masteryText">Today’s small win will appear here.</p></div>
+        <p class="privacy-note">Private by design: this MVP saves only this device’s session summary. It does not create an account or send Leo’s data anywhere.</p>
+      </section>
+    </main>
+    <footer>Made for curious little explorers · <button id="resetProgress">Reset this device’s progress</button></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
